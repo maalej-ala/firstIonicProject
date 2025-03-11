@@ -1,13 +1,58 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Blank</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>docters</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" fullscreen>
   <swiper-container #swiperRef>
     <swiper-slide *ngFor="let image of images">
       <img [src]="image" alt="slide image">
     </swiper-slide>
   </swiper-container>
+  <ion-searchbar></ion-searchbar>
+  <ion-card button>
+    <ion-grid>
+      <ion-row>
+        <!-- Left column for the image -->
+        <ion-col size="4">
+          <img src="assets/images/docter.png" alt="Card Image" />
+        </ion-col>
+        <!-- Right column for the text -->
+        <ion-col size="8">
+          <ion-card-header>
+            <ion-card-title>mohsen mohsen</ion-card-title>
+            <ion-card-subtitle>leg</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            32 years of experience.
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card button>
+    <ion-grid>
+      <ion-row>
+        <!-- Left column for the image -->
+        <ion-col size="4">
+          <img src="assets/images/docter.png" alt="Card Image" />
+        </ion-col>
+        <!-- Right column for the text -->
+        <ion-col size="8">
+          <ion-card-header>
+            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Here's a small text description.
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

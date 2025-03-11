@@ -8,8 +8,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'doctor-home',
     pathMatch: 'full'
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'doctor-home',
+    loadChildren: () => import('./doctor-home/doctor-home.module').then( m => m.DoctorHomePageModule)
   },
 ];
 
