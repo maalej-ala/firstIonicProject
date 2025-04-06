@@ -41,7 +41,7 @@ var role ='doctor';
       this.router.navigate(['/home']);
     } else if (role === 'doctor') {
       this.menuPages = [
-        { title: 'Dashboard', page: 'doctor-home', icon: 'speedometer' },
+        { title: 'Dashboard', page: 'calendar', icon: 'speedometer' },
         { title: 'Patients', page: 'doctor-patients', icon: 'people' },
         { title: 'Logout', page: 'logout', icon: 'log-out', action: 'logout' },
       ];
