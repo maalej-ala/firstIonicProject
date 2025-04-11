@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Client } from 'src/app/models/client.model';  // Import from shared location
 
-interface Client {
-  id: number;
-  name: string;
-  phone: string;
-  image?: string;  // Optional image URL
-}
+
 
 @Component({
   selector: 'app-client',
@@ -32,7 +29,7 @@ export class ClientPage implements OnInit {
   
   filteredClients: Client[] = [];
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     this.initializeClients();
@@ -56,9 +53,9 @@ export class ClientPage implements OnInit {
   }
 
   viewClientDetails(client: Client) {
-    // Add your navigation logic here
+    this.router.navigate(['/client-personel', client.id], {
+      state: { client: client }  // Pass the entire client object
+    });
     console.log('Viewing details for:', client.name);
-    // Example with Angular Router:
-    // this.router.navigate(['/client-details', client.id]);
   }
 }
