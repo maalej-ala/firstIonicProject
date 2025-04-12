@@ -11,6 +11,12 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+<<<<<<< HEAD
+
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+=======
   {
     path: 'settings',
     loadChildren: () => import('./user/settings/settings.module').then( m => m.SettingsPageModule)
@@ -26,17 +32,22 @@ const routes: Routes = [
   {
     path: 'personal',
     loadChildren: () => import('./docteur/personal/personal.module').then( m => m.PersonalPageModule)
+>>>>>>> ff0545529bb7c35877499335c2d1de1aa7d8a5ca
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+<<<<<<< HEAD
+ 
+=======
   {
     path: 'client-personel/:id',
     loadChildren: () => import('./docteur/client-personel/client-personel.module').then( m => m.ClientPersonelPageModule)
   },
 
 
+>>>>>>> ff0545529bb7c35877499335c2d1de1aa7d8a5ca
 
 
 ];

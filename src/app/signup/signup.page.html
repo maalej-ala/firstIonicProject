@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container">
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+      <!-- Champ Nom -->
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input type="text" [(ngModel)]="nom" name="nom" placeholder="Nom" required></ion-input>
+      </ion-item>
+      <div *ngIf="!nom && signupForm.submitted" class="error-message">
+        Le nom est requis.
+      </div>
+
+      <!-- Champ Prénom -->
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input type="text" [(ngModel)]="prenom" name="prenom" placeholder="Prénom" required></ion-input>
+      </ion-item>
+      <div *ngIf="!prenom && signupForm.submitted" class="error-message">
+        Le prénom est requis.
+      </div>
+
+      <!-- Champ Email -->
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input type="email" [(ngModel)]="email" name="email" placeholder="Email" required></ion-input>
+      </ion-item>
+      <div *ngIf="!email && signupForm.submitted" class="error-message">
+        L'email est requis.
+      </div>
+
+      <!-- Champ Mot de passe -->
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input 
+          type="{{ showPassword ? 'text' : 'password' }}" 
+          [(ngModel)]="password" 
+          name="password" 
+          placeholder="Mot de passe" 
+          required>
+        </ion-input>
+        <ion-icon 
+          slot="end" 
+          [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" 
+          (click)="togglePasswordVisibility()">
+        </ion-icon>
+      </ion-item>
+      <div *ngIf="!password && signupForm.submitted" class="error-message">
+        Le mot de passe est requis.
+      </div>
+
+      <!-- Champ Confirmation du mot de passe -->
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input 
+          type="{{ showConfirmPassword ? 'text' : 'password' }}" 
+          [(ngModel)]="confirmPassword" 
+          name="confirmPassword" 
+          placeholder="Confirmer le mot de passe" 
+          required>
+        </ion-input>
+        <ion-icon 
+          slot="end" 
+          [name]="showConfirmPassword ? 'eye-off-outline' : 'eye-outline'" 
+          (click)="toggleConfirmPasswordVisibility()">
+        </ion-icon>
+      </ion-item>
+      <div *ngIf="password !== confirmPassword && signupForm.submitted" class="error-message">
+        Les mots de passe ne correspondent pas.
+      </div>
+
+      <!-- Bouton d'inscription -->
+      <ion-button type="submit" expand="block" [disabled]="!signupForm.form.valid || loading">
+        <ion-spinner *ngIf="loading"></ion-spinner>
+        <span *ngIf="!loading">S'inscrire</span>
+      </ion-button>
+
+      <!-- Lien vers la page de connexion -->
+      <div class="login-link">
+        <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
+      </div>
+    </form>
+  </div>
+</ion-content>

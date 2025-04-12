@@ -1,3 +1,63 @@
+<<<<<<< HEAD
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <!-- Champ Email -->
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input 
+          type="email" 
+          [(ngModel)]="email" 
+          name="email" 
+          placeholder="Email" 
+          required>
+        </ion-input>
+      </ion-item>
+      <div *ngIf="!email && loginForm.submitted" class="error-message">
+        L'email est requis.
+      </div>
+
+      <!-- Champ Mot de passe -->
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input 
+          type="{{ showPassword ? 'text' : 'password' }}" 
+          [(ngModel)]="password" 
+          (ngModelChange)="onPasswordChange($event)" 
+          name="password" 
+          placeholder="Mot de passe" 
+          required>
+        </ion-input>
+        <!-- <ion-icon 
+          slot="end" 
+          [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" 
+          (click)="togglePasswordVisibility()">
+        </ion-icon> -->
+      </ion-item>
+      <div *ngIf="!password && loginForm.submitted" class="error-message">
+        Le mot de passe est requis.
+      </div>
+
+      <!-- Bouton de connexion -->
+      <ion-button type="submit" expand="block" [disabled]="!loginForm.form.valid || loading">
+        <ion-spinner *ngIf="loading"></ion-spinner>
+        <span *ngIf="!loading">Se connecter</span>
+      </ion-button>
+
+      <!-- Lien vers la page d'inscription -->
+      <div class="signup-link">
+        <p>Vous n'avez pas de compte ? <a href="/signup">Inscrivez-vous</a></p>
+      </div>
+    </form>
+  </div>
+</ion-content>
+=======
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>login</ion-title>
@@ -11,3 +71,4 @@
     </ion-toolbar>
   </ion-header>
 </ion-content>
+>>>>>>> ff0545529bb7c35877499335c2d1de1aa7d8a5ca

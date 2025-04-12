@@ -1,0 +1,50 @@
+ion-content {
+    --ion-background-color: #f4f5f8;  // Fond gris clair
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  // Prend toute la hauteur de la page
+  }
+  
+  .container {
+    width: 90%;
+  margin-top: 120px;
+  margin-left: 15px;
+
+  max-width: 400px;
+  padding: 20px;
+  background: #ffffff;  // Fond blanc pour le formulaire
+  border-radius: 10px;  // Bords arrondis
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  // Ombre légère
+  }
+  
+  ion-item {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    --background: #737476;  // Fond gris clair pour les champs
+    --border-radius: 8px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+  
+    ion-icon[name="eye-outline"],
+    ion-icon[name="eye-off-outline"] {
+      cursor: pointer;  // Curseur en pointeur pour l'icône
+      color: #3880ff;  // Couleur bleue pour l'icône
+      font-size: 20px;  // Taille de l'icône
+    }
+  }
+  
+  ion-button {
+    margin-top: 20px;
+    --background: #3880ff;  // Bouton bleu
+    --background-activated: #3171e0;
+    --background-hover: #3171e0;
+    --border-radius: 8px;
+    --color: #ffffff;  // Texte blanc pour le bouton
+  }
+  
+  .error-message {
+    color: #eb445a;  // Couleur rouge pour les messages d'erreur
+    font-size: 14px;
+    margin-top: 5px;
+  }
