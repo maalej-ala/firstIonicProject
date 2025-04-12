@@ -1,0 +1,17 @@
+swiper-container {
+    width: 100%;
+    height: auto; /* Changé de auto à 100% pour s'assurer qu'il prend toute la hauteur */
+  }
+  
+  swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }

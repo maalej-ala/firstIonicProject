@@ -35,3 +35,24 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+ion-header {
+  ion-toolbar {
+    --background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    --color: white; /* Text color */
+    --ion-toolbar-border-color: transparent; /* Remove border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+  }
+
+  ion-title {
+    font-size: 1.5rem; /* Increase title size */
+    font-weight: bold; /* Make title bold */
+  }
+}
+
+/* Style for the collapsed header */
+ion-header.collapse-condense {
+  ion-toolbar {
+    --background: transparent; /* Transparent background */
+    --color: #6a11cb; /* Change text color */
+  }
+}
