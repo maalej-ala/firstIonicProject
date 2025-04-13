@@ -22,23 +22,37 @@ except Exception as e:
 # Route pour l'inscription des patients
 @app.route('/signup', methods=['POST'])
 def signup():
-    data = request.get_json()
+    data = request.form
+    file = request.files.get('photo')
 
-    # Vérifier si l'email existe déjà
     if Patient.objects(email=data['email']).first():
         return jsonify({"error": "Email already exists"}), 400
 
-    # Créer un nouveau patient
+    image_binary = file.read() if file else None
+
     new_patient = Patient(
         email=data['email'],
-        password=generate_password_hash(data['password']),  # Hashage du mot de passe
+        password=generate_password_hash(data['password']),
         nom=data['nom'],
-        prenom=data['prenom']
+        prenom=data['prenom'],
+        image=image_binary
     )
     new_patient.save()
-
     return jsonify({"message": "Patient registered successfully"}), 201
 
+@app.route('/patient/<email>/image', methods=['GET'])
+def get_patient_image(email):
+    try:
+        patient = Patient.objects.get(email=email)
+        if patient.image:
+            return send_file(io.BytesIO(patient.image), mimetype='image/png')
+        else:
+            return jsonify({"error": "No image found"}), 404
+    except DoesNotExist:
+        return jsonify({"error": "Patient not found"}), 404
+
+if __name__ == '__main__':
+    app.run(debug=True)
 # Route pour la connexion des patients
 @app.route('/login', methods=['POST'])
 def login():
